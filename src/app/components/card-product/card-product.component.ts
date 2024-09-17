@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-product',
@@ -6,25 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './card-product.component.scss'
 })
 export class CardProductComponent implements OnInit{
-
+// creacion del Input que recibe del compoente padre el array de productos
+  @Input() product = {
+    name: '',
+    price: 0,
+    description: '',
+    inventory: 0,
+    image: ''
+  };
+  
+  cantidad: number = 0;
   soldOut: boolean = false;
-cantidad: number = 0;
 
-//Inicio objeto de producto.
-product = {
-  name: 'Bike',
-  price: 120,
-  description: 'Product Description',
-  inventory: 10,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-}
-//fin objeto de producto.
+
   constructor() { }
 
   ngOnInit() {
   }
 
-	addProduct() {
+  addProduct() {
     if(this.cantidad < this.product.inventory){
       this.soldOut = false;
       this.cantidad++;
@@ -39,4 +39,6 @@ product = {
       this.cantidad--;
     }
   }
+
 }
+
