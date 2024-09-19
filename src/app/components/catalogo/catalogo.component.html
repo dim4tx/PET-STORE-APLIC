@@ -1,7 +1,13 @@
 
-<!-- catalogo.component.html -->
-<div *ngFor="let producto of productos">
-    <!-- Código HTML para mostrar productos -->
+<div class="cards-container">
+  <div *ngFor="let product of products; let i = index">
+    <!-- adicionar el evento que envia el objeto del producto elegido-->
+    <app-card-product
+      [product]="product"
+      (addToCart)="addToCart($event)"
+    ></app-card-product>
+
   </div>
+</div>
   
   
