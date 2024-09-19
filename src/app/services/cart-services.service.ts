@@ -14,14 +14,22 @@ interface Product {
 })
 export class CartServicesService {
 
-  // Array para almacenar los productos del carrito
-  private cart: Product[] = [];
+   // Array para almacenar los productos del carrito
+   private cart: Product[] = [];
+ 
+   constructor() { }
 
-  constructor() { }
+   private productCount: number = 0;
+
+resetCount() {
+    this.productCount = 0; // Reinicia el contador
+}
+
 
   // Método para añadir un producto al carrito
   addToCart(product: Product) {
     this.cart.push(product);
+    this.productCount++;
   }
 
   // Método para eliminar un producto del carrito por su ID

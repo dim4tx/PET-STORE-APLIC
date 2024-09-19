@@ -33,6 +33,7 @@ export class CardProductComponent implements OnInit{
       this.soldOut = true;
     }
   }
+  
 
   removeProduct() {
     if(this.cantidad > 0){
