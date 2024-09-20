@@ -46,6 +46,7 @@ export class CardProductComponent implements OnInit{
     if(this.cantidad > 0){ //3. validar si tiena una cantidad de producto
       this.product['cantidad'] = this.cantidad; //4. asigna la cantidad a perdir
       this.addToCart.emit(this.product); //5. enviar la informacion por el event emiter del output
+      this.cantidad=0;
     }
     return null;
   }
